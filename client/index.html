@@ -7,20 +7,28 @@
     <title>MicroUrl</title>
 </head>
 <body>
+  <div id="app" v-cloak>
     <main>
-        <h1>MicroUrl</h1>
+      <h1>MicroUrl</h1>
     </main>
+
     <section>
-        <form action="javascript:;" onsubmit="createUrl(displayResponse)">
-            <label for="url">Url to shorten:</label>
-            <input type="url" name="url" id="url" required>
-            <label for="slug">Optional. Custom micro url:</label>
-            <input type="text" name="slug" id="slug">
-            <input type="submit" value="Create">
-        </form>
+      <form @submit.prevent="createUrl" autocomplete="off">
+        <label for="url">Url to shorten:</label>
+        <input type="url" name="url" id="url" v-model="url" required>
+        <label for="slug">Optional. Custom micro url:</label>
+        <input type="text" name="slug" id="slug" v-model="slug" minlength="5" maxlength="5">
+        <input type="submit" value="Create">
+      </form>
     </section>
+    
     <section id="response">
+      <p>{{message}}</p>
+      <a v-if="link" :href="link" target="__blank">{{link}}</a>
     </section>
+
+  </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
     <script src="app.js"></script>
 </body>
 </html>

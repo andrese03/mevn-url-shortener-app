@@ -1,5 +1,5 @@
-const express = require('express');
 const mongoose = require('mongoose');
+const express = require('express');
 require('dotenv').config();
 
 const urlRouter = require('./routes/url.routes');
@@ -7,13 +7,11 @@ const urlRouter = require('./routes/url.routes');
 const PORT = process.env.PORT || 8080;
 const DB_URL = process.env.DB_URL || 'mongodb://localhost:27017/db';
 
-const db = mongoose.connect(DB_URL, {
+mongoose.connect(DB_URL, {
   useCreateIndex: true,
   useNewUrlParser: true,
   useUnifiedTopology: true,
-})
-  .then((res) => res)
-  .catch((err) => console.log(err));
+});
 
 const app = express();
 

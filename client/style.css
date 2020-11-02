@@ -4,9 +4,9 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: #84613D;
+  color: #22bef7;
   font-family: "Lucida Console", Monaco, monospace;
-  background: #FDF9EA;
+  background: #202020;
 }
 
 body > * {
@@ -29,4 +29,15 @@ form > * {
 
 form > button {
   padding: 0;
+}
+
+input {
+  background: #202020;
+  color: #fafafa;
+  border: solid 2px #22bef7;
+  border-radius: 4px;
+}
+
+[v-cloak] {
+  display: none;
 }
